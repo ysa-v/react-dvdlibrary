@@ -1,30 +1,40 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
-import Contact from "./Contact";
+import Dvd from "./Dvd";
 import useFetch from "../hooks/useFetch";
 
 function Search() {
   const [usersSearch, setUsersSearch] = useState("");
   const [userHasSearched, setUserHasSearched] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
-  let url = `http://contactlist.us-east-1.elasticbeanstalk.com/contacts`;
-  const [contactData, error] = useFetch(url);
+  const [userSearchCategory, setUserSearchCategory] = useState([]);
+  let url = `http://dvd-library.us-east-1.elasticbeanstalk.com/`;
+  const [dvdData, error] = useFetch(url);
 
-  function filterContactData(searchTerm) {
+  function filterDvdData(searchTerm, searchCategory) {
     setUserHasSearched(true);
     setUsersSearch(searchTerm);
+    setUserSearchCategory(searchCategory);
 
     let filteredResults;
 
-    if (searchTerm == "") {
+    if (searchTerm == "" || searchCategory == "") {
       filteredResults = [];
       setUserHasSearched(false);
     } else {
-      filteredResults = contactData.filter((contact) => {
-        return (
-          contact.firstName.includes(searchTerm) ||
-          contact.lastName.includes(searchTerm)
-        );
+      filteredResults = dvdData.filter((dvd) => {
+        if (searchCategory == "title"){
+          return dvd.title.includes(searchTerm);
+        }
+        if (searchCategory == "director"){
+          return dvd.director.includes(searchTerm);
+        }
+        if (searchCategory == "release year"){
+          return dvd.releaseDate.includes(searchTerm);
+        }
+        else {
+          return dvd.rating.includes(searchTerm);
+        }
       });
     }
 
@@ -35,8 +45,12 @@ function Search() {
     <div>
       <SearchBar
         searchValue={usersSearch}
-        searchValueFunction={filterContactData}
+        searchValueFunction={filterDvdData}
       />
+
+      <SearchCategory
+        searchCategory={userSearchCategory}
+        />
 
       <section className="flex justify-center my-4">
         {userHasSearched ? (
@@ -50,7 +64,7 @@ function Search() {
               role="alert"
             >
               <p className="text-center">
-                <strong>Sorry!</strong> There are no contacts with the name of{" "}
+                <strong>Sorry!</strong> There are no Dvds found with {" "}
                 <strong>{usersSearch}</strong>
               </p>
             </div>
@@ -61,13 +75,14 @@ function Search() {
                   : "hidden"
               }
             >
-              {searchResults.map((contact) => {
+              {searchResults.map((dvd) => {
                 return (
-                  <Contact
-                    key={contact.contactId}
-                    name={`${contact.firstName} ${contact.lastName}`}
-                    telNumber={contact.phone}
-                    email={contact.email}
+                  <Dvd
+                    key={dvd.dvdId}
+                    title={dvd.title}
+                    releaseDate={dvd.releaseDate}
+                    rating={dvd.rating}
+                    notes={dvd.notes}
                   />
                 );
               })}
@@ -75,13 +90,14 @@ function Search() {
           </>
         ) : (
           <div className="grid grid-cols-3 gap-2 place-items-center">
-            {contactData.map((contact) => {
+            {dvdData.map((dvd) => {
               return (
-                <Contact
-                  key={contact.contactId}
-                  name={`${contact.firstName} ${contact.lastName}`}
-                  telNumber={contact.phone}
-                  email={contact.email}
+                <Dvd
+                key={dvd.dvdId}
+                title={dvd.title}
+                releaseDate={dvd.releaseDate}
+                rating={dvd.rating}
+                notes={dvd.notes}
                 />
               );
             })}
