@@ -90,13 +90,14 @@ function Search() {
             >
               {searchResults.map((dvd) => {
                 return (
-                  <Dvd
-                    key={dvd.dvdId}
-                    title={dvd.title}
-                    releaseDate={dvd.releaseDate}
-                    rating={dvd.rating}
-                    notes={dvd.notes}
-                  />
+                  <Link key={dvd.dvdId} to={'/${dvd.dvdId}'}>
+                    <Dvd
+                      title={dvd.title}
+                      releaseDate={dvd.releaseDate}
+                      rating={dvd.rating}
+                      notes={dvd.notes}
+                    />
+                  </Link>
                 );
               })}
             </div>
@@ -105,13 +106,14 @@ function Search() {
           <div className="grid grid-cols-3 gap-2 place-items-center">
             {dvdData.map((dvd) => {
               return (
-                <Dvd
-                key={dvd.dvdId}
-                title={dvd.title}
-                releaseDate={dvd.releaseDate}
-                rating={dvd.rating}
-                notes={dvd.notes}
-                />
+                <Link key={dvd.dvdId} to={'/${dvd.dvdId}'}>
+                  <Dvd
+                    title={dvd.title}
+                    releaseDate={dvd.releaseDate}
+                    rating={dvd.rating}
+                    notes={dvd.notes}
+                  />
+                </Link>
               );
             })}
           </div>

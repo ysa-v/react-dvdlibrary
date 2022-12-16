@@ -28330,7 +28330,7 @@ function App() {
                         element: /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _searchDefault.default), {})
                     }),
                     /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _reactRouterDom.Route), {
-                        path: "/:dvdID",
+                        path: "/:dvdId",
                         element: /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _dvdDetailsDefault.default), {})
                     }),
                     /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _reactRouterDom.Route), {
@@ -29426,11 +29426,14 @@ function Search() {
                         /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
                             className: searchResults.length > 0 ? "grid grid-cols-3 gap-2 place-items-center" : "hidden",
                             children: searchResults.map((dvd)=>{
-                                return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _dvdDefault.default), {
-                                    title: dvd.title,
-                                    releaseDate: dvd.releaseDate,
-                                    rating: dvd.rating,
-                                    notes: dvd.notes
+                                return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _reactRouterDom.Link), {
+                                    to: "/${dvd.dvdId}",
+                                    children: /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _dvdDefault.default), {
+                                        title: dvd.title,
+                                        releaseDate: dvd.releaseDate,
+                                        rating: dvd.rating,
+                                        notes: dvd.notes
+                                    })
                                 }, dvd.dvdId);
                             })
                         })
@@ -29438,11 +29441,14 @@ function Search() {
                 }) : /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
                     className: "grid grid-cols-3 gap-2 place-items-center",
                     children: dvdData.map((dvd)=>{
-                        return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _dvdDefault.default), {
-                            title: dvd.title,
-                            releaseDate: dvd.releaseDate,
-                            rating: dvd.rating,
-                            notes: dvd.notes
+                        return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _reactRouterDom.Link), {
+                            to: "/${dvd.dvdId}",
+                            children: /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _dvdDefault.default), {
+                                title: dvd.title,
+                                releaseDate: dvd.releaseDate,
+                                rating: dvd.rating,
+                                notes: dvd.notes
+                            })
                         }, dvd.dvdId);
                     })
                 })
@@ -29921,15 +29927,13 @@ var _reactRouterDom = require("react-router-dom");
 var _react = require("react");
 var _useFetch = require("../hooks/useFetch");
 var _useFetchDefault = parcelHelpers.interopDefault(_useFetch);
-var _baselinePermIdentityBlack48DpPng = require("url:../images/baseline_perm_identity_black_48dp.png");
-var _baselinePermIdentityBlack48DpPngDefault = parcelHelpers.interopDefault(_baselinePermIdentityBlack48DpPng);
 var _jsxRuntime = require("react/jsx-runtime");
 var _s = $RefreshSig$();
 function DvdDetails() {
     _s();
-    let { dvdID  } = (0, _reactRouterDom.useParams)();
+    let { dvdId  } = (0, _reactRouterDom.useParams)();
     const navigate = (0, _reactRouterDom.useNavigate)();
-    let url = "http://dvd-library.us-east-1.elasticbeanstalk.com/dvds/${dvdID}";
+    let url = "http://dvd-library.us-east-1.elasticbeanstalk.com/dvds/${dvdId}";
     const [data, error] = (0, _useFetchDefault.default)(url);
     const [updateDvdData, setUpdateDvdData] = (0, _react.useState)(data);
     const [editing, setEditing] = (0, _react.useState)(false);
@@ -29944,7 +29948,7 @@ function DvdDetails() {
             [e.target.id]: e.target.value
         });
     }
-    function updateContact() {
+    function updateDvd() {
         if (editing === true) {
             setEditing(!editing);
             fetch(url, {
@@ -30133,7 +30137,7 @@ function DvdDetails() {
         ]
     });
 }
-_s(DvdDetails, "irREF/PgAmM8psyzS4LLg6PnnOk=", false, function() {
+_s(DvdDetails, "2ktaQFr+iAtddDd+Cf5eFHKyBq0=", false, function() {
     return [
         (0, _reactRouterDom.useParams),
         (0, _reactRouterDom.useNavigate),
@@ -30150,43 +30154,6 @@ $RefreshReg$(_c, "DvdDetails");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react-router-dom":"9xmpe","react":"21dqq","../hooks/useFetch":"lAuMa","url:../images/baseline_perm_identity_black_48dp.png":"l3MoU","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"l3MoU":[function(require,module,exports) {
-module.exports = require("ea9f377dcfe505bc").getBundleURL("byUka") + "baseline_perm_identity_black_48dp.da64e206.png" + "?" + Date.now();
-
-},{"ea9f377dcfe505bc":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequireace3")
+},{"react-router-dom":"9xmpe","react":"21dqq","../hooks/useFetch":"lAuMa","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequireace3")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

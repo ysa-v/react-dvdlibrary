@@ -1,12 +1,11 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import useFetch from "../hooks/useFetch";
-import contactImgUrl from "url:../images/baseline_perm_identity_black_48dp.png";
 
 function DvdDetails() {
-    let { dvdID } = useParams();
+    let { dvdId } = useParams();
     const navigate = useNavigate();
-    let url = 'http://dvd-library.us-east-1.elasticbeanstalk.com/dvds/${dvdID}';
+    let url = 'http://dvd-library.us-east-1.elasticbeanstalk.com/dvds/${dvdId}';
     const [data, error] = useFetch(url);
     const [updateDvdData, setUpdateDvdData] = useState(data);
     const [editing, setEditing] = useState(false);
@@ -22,7 +21,7 @@ function DvdDetails() {
         });
     }
 
-    function updateContact() {
+    function updateDvd() {
         if (editing === true) {
             setEditing(!editing);
 

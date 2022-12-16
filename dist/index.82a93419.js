@@ -29125,7 +29125,7 @@ function App() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                        path: "/:dvdID",
+                        path: "/:dvdId",
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dvdDetailsDefault.default), {}, void 0, false, void 0, void 0)
                     }, void 0, false, {
                         fileName: "Downloads/ReactRouterStarter/src/components/App.jsx",
@@ -29502,11 +29502,18 @@ function Search() {
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: searchResults.length > 0 ? "grid grid-cols-3 gap-2 place-items-center" : "hidden",
                             children: searchResults.map((dvd)=>{
-                                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dvdDefault.default), {
-                                    title: dvd.title,
-                                    releaseDate: dvd.releaseDate,
-                                    rating: dvd.rating,
-                                    notes: dvd.notes
+                                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/${dvd.dvdId}",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dvdDefault.default), {
+                                        title: dvd.title,
+                                        releaseDate: dvd.releaseDate,
+                                        rating: dvd.rating,
+                                        notes: dvd.notes
+                                    }, void 0, false, {
+                                        fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
+                                        lineNumber: 94,
+                                        columnNumber: 21
+                                    }, this)
                                 }, dvd.dvdId, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
                                     lineNumber: 93,
@@ -29522,20 +29529,27 @@ function Search() {
                 }, void 0, true) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "grid grid-cols-3 gap-2 place-items-center",
                     children: dvdData.map((dvd)=>{
-                        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dvdDefault.default), {
-                            title: dvd.title,
-                            releaseDate: dvd.releaseDate,
-                            rating: dvd.rating,
-                            notes: dvd.notes
+                        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                            to: "/${dvd.dvdId}",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dvdDefault.default), {
+                                title: dvd.title,
+                                releaseDate: dvd.releaseDate,
+                                rating: dvd.rating,
+                                notes: dvd.notes
+                            }, void 0, false, {
+                                fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
+                                lineNumber: 110,
+                                columnNumber: 19
+                            }, this)
                         }, dvd.dvdId, false, {
                             fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                            lineNumber: 108,
+                            lineNumber: 109,
                             columnNumber: 17
                         }, this);
                     })
                 }, void 0, false, {
                     fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                    lineNumber: 105,
+                    lineNumber: 106,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
@@ -30238,14 +30252,12 @@ var _reactRouterDom = require("react-router-dom");
 var _react = require("react");
 var _useFetch = require("../hooks/useFetch");
 var _useFetchDefault = parcelHelpers.interopDefault(_useFetch);
-var _baselinePermIdentityBlack48DpPng = require("url:../images/baseline_perm_identity_black_48dp.png");
-var _baselinePermIdentityBlack48DpPngDefault = parcelHelpers.interopDefault(_baselinePermIdentityBlack48DpPng);
 var _s = $RefreshSig$();
 function DvdDetails() {
     _s();
-    let { dvdID  } = (0, _reactRouterDom.useParams)();
+    let { dvdId  } = (0, _reactRouterDom.useParams)();
     const navigate = (0, _reactRouterDom.useNavigate)();
-    let url = "http://dvd-library.us-east-1.elasticbeanstalk.com/dvds/${dvdID}";
+    let url = "http://dvd-library.us-east-1.elasticbeanstalk.com/dvds/${dvdId}";
     const [data, error] = (0, _useFetchDefault.default)(url);
     const [updateDvdData, setUpdateDvdData] = (0, _react.useState)(data);
     const [editing, setEditing] = (0, _react.useState)(false);
@@ -30260,7 +30272,7 @@ function DvdDetails() {
             [e.target.id]: e.target.value
         });
     }
-    function updateContact() {
+    function updateDvd() {
         if (editing === true) {
             setEditing(!editing);
             fetch(url, {
@@ -30291,30 +30303,30 @@ function DvdDetails() {
                                 fill: "none"
                             }, void 0, false, {
                                 fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                lineNumber: 52,
+                                lineNumber: 51,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
                                 d: "M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
                             }, void 0, false, {
                                 fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                lineNumber: 53,
+                                lineNumber: 52,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                        lineNumber: 45,
+                        lineNumber: 44,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                    lineNumber: 44,
+                    lineNumber: 43,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                lineNumber: 43,
+                lineNumber: 42,
                 columnNumber: 13
             }, this),
             error !== null ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30327,19 +30339,19 @@ function DvdDetails() {
                             children: "Sorry!"
                         }, void 0, false, {
                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                            lineNumber: 65,
+                            lineNumber: 64,
                             columnNumber: 29
                         }, this),
                         " It seems that this DVD is missing or has been deleted."
                     ]
                 }, void 0, true, {
                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                    lineNumber: 64,
+                    lineNumber: 63,
                     columnNumber: 25
                 }, this)
             }, void 0, false, {
                 fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                lineNumber: 60,
+                lineNumber: 59,
                 columnNumber: 21
             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "flex flex-col items-center my-16 mx-2 md:w-1/2 lg:w-2/5 md:mx-auto shadow-xl bg-gray-50 rounded pt-8 p-4 px-8",
@@ -30353,7 +30365,7 @@ function DvdDetails() {
                                 children: `${updateDvdData.title}`
                             }, void 0, false, {
                                 fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                lineNumber: 77,
+                                lineNumber: 76,
                                 columnNumber: 37
                             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
                                 className: "flex justify-around ",
@@ -30364,7 +30376,7 @@ function DvdDetails() {
                                         children: "Title"
                                     }, void 0, false, {
                                         fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                        lineNumber: 83,
+                                        lineNumber: 82,
                                         columnNumber: 41
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -30375,18 +30387,18 @@ function DvdDetails() {
                                         className: "font-light text-xl w-24 mr-2 p-1 rounded"
                                     }, void 0, false, {
                                         fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                        lineNumber: 86,
+                                        lineNumber: 85,
                                         columnNumber: 41
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                lineNumber: 82,
+                                lineNumber: 81,
                                 columnNumber: 37
                             }, this)
                         }, void 0, false, {
                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                            lineNumber: 74,
+                            lineNumber: 73,
                             columnNumber: 25
                         }, this),
                         !editing ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30397,7 +30409,7 @@ function DvdDetails() {
                                     children: "Release Date:"
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 104,
+                                    lineNumber: 103,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -30405,7 +30417,7 @@ function DvdDetails() {
                                     children: updateDvdData.releaseDate
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 105,
+                                    lineNumber: 104,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -30413,7 +30425,7 @@ function DvdDetails() {
                                     children: "Director:"
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 110,
+                                    lineNumber: 109,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -30421,7 +30433,7 @@ function DvdDetails() {
                                     children: updateDvdData.director
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 111,
+                                    lineNumber: 110,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -30429,7 +30441,7 @@ function DvdDetails() {
                                     children: "Rating:"
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 116,
+                                    lineNumber: 115,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -30437,7 +30449,7 @@ function DvdDetails() {
                                     children: updateDvdData.rating
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 117,
+                                    lineNumber: 116,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -30445,7 +30457,7 @@ function DvdDetails() {
                                     children: "Notes:"
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 122,
+                                    lineNumber: 121,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -30453,13 +30465,13 @@ function DvdDetails() {
                                     children: updateDvdData.notes
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 123,
+                                    lineNumber: 122,
                                     columnNumber: 37
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                            lineNumber: 102,
+                            lineNumber: 101,
                             columnNumber: 33
                         }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
                             className: "grid grid-cols-2 gap-3 items-center justify-items-center mt-32 pt-8",
@@ -30470,7 +30482,7 @@ function DvdDetails() {
                                     children: "Release Date:"
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 130,
+                                    lineNumber: 129,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -30481,7 +30493,7 @@ function DvdDetails() {
                                     className: "font-light text-xl"
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 133,
+                                    lineNumber: 132,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -30490,7 +30502,7 @@ function DvdDetails() {
                                     children: "Director:"
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 140,
+                                    lineNumber: 139,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -30501,7 +30513,7 @@ function DvdDetails() {
                                     className: "font-light text-xl"
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 143,
+                                    lineNumber: 142,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -30510,7 +30522,7 @@ function DvdDetails() {
                                     children: "Rating:"
                                 }, void 0, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 150,
+                                    lineNumber: 149,
                                     columnNumber: 37
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
@@ -30524,7 +30536,7 @@ function DvdDetails() {
                                             children: "--Please select a rating--"
                                         }, void 0, false, {
                                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                            lineNumber: 159,
+                                            lineNumber: 158,
                                             columnNumber: 41
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -30532,7 +30544,7 @@ function DvdDetails() {
                                             children: "G"
                                         }, void 0, false, {
                                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                            lineNumber: 160,
+                                            lineNumber: 159,
                                             columnNumber: 41
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -30540,7 +30552,7 @@ function DvdDetails() {
                                             children: "PG"
                                         }, void 0, false, {
                                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                            lineNumber: 161,
+                                            lineNumber: 160,
                                             columnNumber: 41
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -30548,7 +30560,7 @@ function DvdDetails() {
                                             children: "PG-13"
                                         }, void 0, false, {
                                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                            lineNumber: 162,
+                                            lineNumber: 161,
                                             columnNumber: 41
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -30556,7 +30568,7 @@ function DvdDetails() {
                                             children: "R"
                                         }, void 0, false, {
                                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                            lineNumber: 163,
+                                            lineNumber: 162,
                                             columnNumber: 41
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -30564,7 +30576,7 @@ function DvdDetails() {
                                             children: "NC-17"
                                         }, void 0, false, {
                                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                            lineNumber: 164,
+                                            lineNumber: 163,
                                             columnNumber: 41
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -30572,36 +30584,36 @@ function DvdDetails() {
                                             children: "NR: Not Rated"
                                         }, void 0, false, {
                                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                            lineNumber: 165,
+                                            lineNumber: 164,
                                             columnNumber: 41
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                                    lineNumber: 153,
+                                    lineNumber: 152,
                                     columnNumber: 37
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                            lineNumber: 129,
+                            lineNumber: 128,
                             columnNumber: 33
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                    lineNumber: 71,
+                    lineNumber: 70,
                     columnNumber: 21
                 }, this)
             }, void 0, false, {
                 fileName: "Downloads/ReactRouterStarter/src/components/DvdDetails.jsx",
-                lineNumber: 70,
+                lineNumber: 69,
                 columnNumber: 21
             }, this)
         ]
     }, void 0, true);
 }
-_s(DvdDetails, "revzEatlQbMVXsRNfIEEFKAZrXo=", false, function() {
+_s(DvdDetails, "2cP1QiT1P5fsLDkuZkZqFuO50ms=", false, function() {
     return [
         (0, _reactRouterDom.useParams),
         (0, _reactRouterDom.useNavigate),
@@ -30618,43 +30630,6 @@ $RefreshReg$(_c, "DvdDetails");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"ebWIJ","react-router-dom":"9Vdi8","react":"h1Bpf","../hooks/useFetch":"1MeK3","url:../images/baseline_perm_identity_black_48dp.png":"cJI6l","@parcel/transformer-js/src/esmodule-helpers.js":"9JbF2","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3J1aT"}],"cJI6l":[function(require,module,exports) {
-module.exports = require("ecdc334cd5fb66e4").getBundleURL("8ck2M") + "baseline_perm_identity_black_48dp.675b3395.png" + "?" + Date.now();
-
-},{"ecdc334cd5fb66e4":"k1ZAD"}],"k1ZAD":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}]},["bI1uj","kfe4s","5KVub"], "5KVub", "parcelRequire94c2")
+},{"react/jsx-dev-runtime":"ebWIJ","react-router-dom":"9Vdi8","react":"h1Bpf","../hooks/useFetch":"1MeK3","@parcel/transformer-js/src/esmodule-helpers.js":"9JbF2","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3J1aT"}]},["bI1uj","kfe4s","5KVub"], "5KVub", "parcelRequire94c2")
 
 //# sourceMappingURL=index.82a93419.js.map
