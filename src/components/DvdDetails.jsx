@@ -6,7 +6,7 @@ import contactImgUrl from "url:../images/baseline_perm_identity_black_48dp.png";
 function DvdDetails() {
     let { dvdID } = useParams();
     const navigate = useNavigate();
-    let url = 'http://dvd-library.us-east-1.elasticbeanstalk.com/dvd/${dvdID}'; // not 100% sure the end of this is correct
+    let url = 'http://dvd-library.us-east-1.elasticbeanstalk.com/dvds/${dvdID}';
     const [data, error] = useFetch(url);
     const [updateDvdData, setUpdateDvdData] = useState(data);
     const [editing, setEditing] = useState(false);

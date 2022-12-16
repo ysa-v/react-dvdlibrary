@@ -11,7 +11,7 @@ function AddDvd() {
 
     async function addDvd(event) {
         event.preventDefault();
-        await fetch(//"add API endpoint url here"
+        await fetch("http://dvd-library.us-east-1.elasticbeanstalk.com/dvds"
         , {
             method: "POST",
             headers: {
