@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +12,7 @@ function AddDvd() {
 
     async function addDvd(event) {
         event.preventDefault();
-        await fetch("http://dvd-library.us-east-1.elasticbeanstalk.com/dvds"
+        await fetch("http://dvd-library.us-east-1.elasticbeanstalk.com/dvd"
         , {
             method: "POST",
             headers: {
