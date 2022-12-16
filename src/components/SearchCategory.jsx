@@ -29,7 +29,7 @@ function SearchCategory (getSearchCategory) {
 
     return (
         <div className="dropdown">
-            <button onClick={handleOpen}>Dropdown</button>
+            <button onClick={handleOpen}>Dvd Category</button>
             {open ? (
                 <ul className="category">
                     <li className="category-item">
