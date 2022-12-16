@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import Dvd from "./Dvd";
+import SearchCategory from "./SearchCategory";
 import useFetch from "../hooks/useFetch";
 
 function Search() {
