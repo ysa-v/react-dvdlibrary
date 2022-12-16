@@ -29393,6 +29393,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _reactRouterDom = require("react-router-dom");
 var _searchBar = require("./SearchBar");
 var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _dvd = require("./Dvd");
@@ -29430,11 +29431,27 @@ function Search() {
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+                className: "w-full flex justify-end mt-8",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                    to: "/add",
+                    className: " w-11/12 m-auto lg:w-1/6 text-center text-lg py-4 px-6 rounded-full border-2 lg:mr-16 text-gray-100 border-green-600 bg-green-600 hover:bg-gray-50 hover:border-green-600 hover:text-green-600 hover:shadow-2xl ",
+                    children: "Add DVD"
+                }, void 0, false, {
+                    fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
+                    lineNumber: 53,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
+                lineNumber: 52,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchCategoryDefault.default), {
                 searchCategory: getSearchCategory
             }, void 0, false, {
                 fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                lineNumber: 51,
+                lineNumber: 61,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
@@ -29442,7 +29459,7 @@ function Search() {
                 searchValueFunction: filterDvdData
             }, void 0, false, {
                 fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                lineNumber: 54,
+                lineNumber: 64,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -29459,7 +29476,7 @@ function Search() {
                                         children: "Sorry!"
                                     }, void 0, false, {
                                         fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                                        lineNumber: 70,
+                                        lineNumber: 80,
                                         columnNumber: 17
                                     }, this),
                                     " There are no Dvds found with ",
@@ -29468,18 +29485,18 @@ function Search() {
                                         children: usersSearch
                                     }, void 0, false, {
                                         fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                                        lineNumber: 71,
+                                        lineNumber: 81,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                                lineNumber: 69,
+                                lineNumber: 79,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                            lineNumber: 61,
+                            lineNumber: 71,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29492,13 +29509,13 @@ function Search() {
                                     notes: dvd.notes
                                 }, dvd.dvdId, false, {
                                     fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                                    lineNumber: 83,
+                                    lineNumber: 93,
                                     columnNumber: 19
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                            lineNumber: 74,
+                            lineNumber: 84,
                             columnNumber: 13
                         }, this)
                     ]
@@ -29512,24 +29529,24 @@ function Search() {
                             notes: dvd.notes
                         }, dvd.dvdId, false, {
                             fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                            lineNumber: 98,
+                            lineNumber: 108,
                             columnNumber: 17
                         }, this);
                     })
                 }, void 0, false, {
                     fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                    lineNumber: 95,
+                    lineNumber: 105,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-                lineNumber: 58,
+                lineNumber: 68,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "Downloads/ReactRouterStarter/src/components/Search.jsx",
-        lineNumber: 50,
+        lineNumber: 51,
         columnNumber: 5
     }, this);
 }
@@ -29548,7 +29565,7 @@ $RefreshReg$(_c, "Search");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"ebWIJ","react":"h1Bpf","./SearchBar":"ckoV9","./Dvd":"ekIym","./SearchCategory":"4Xxqm","../hooks/useFetch":"1MeK3","@parcel/transformer-js/src/esmodule-helpers.js":"9JbF2","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3J1aT"}],"ckoV9":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"ebWIJ","react":"h1Bpf","./SearchBar":"ckoV9","./Dvd":"ekIym","./SearchCategory":"4Xxqm","../hooks/useFetch":"1MeK3","@parcel/transformer-js/src/esmodule-helpers.js":"9JbF2","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3J1aT","react-router-dom":"9Vdi8"}],"ckoV9":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$13de = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

@@ -29348,6 +29348,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
+var _reactRouterDom = require("react-router-dom");
 var _searchBar = require("./SearchBar");
 var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _dvd = require("./Dvd");
@@ -29386,6 +29387,14 @@ function Search() {
     }
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
         children: [
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("nav", {
+                className: "w-full flex justify-end mt-8",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _reactRouterDom.Link), {
+                    to: "/add",
+                    className: " w-11/12 m-auto lg:w-1/6 text-center text-lg py-4 px-6 rounded-full border-2 lg:mr-16 text-gray-100 border-green-600 bg-green-600 hover:bg-gray-50 hover:border-green-600  hover:text-green-600 hover:shadow-2xl  ",
+                    children: "Add DVD"
+                })
+            }),
             /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _searchCategoryDefault.default), {
                 searchCategory: getSearchCategory
             }),
@@ -29456,7 +29465,7 @@ $RefreshReg$(_c, "Search");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","./SearchBar":"lM1DZ","./Dvd":"j59ca","./SearchCategory":"2Pha8","../hooks/useFetch":"lAuMa","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lM1DZ":[function(require,module,exports) {
+},{"react":"21dqq","./SearchBar":"lM1DZ","./Dvd":"j59ca","./SearchCategory":"2Pha8","../hooks/useFetch":"lAuMa","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"lM1DZ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e029 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

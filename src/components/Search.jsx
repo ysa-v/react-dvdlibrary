@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import Dvd from "./Dvd";
 import SearchCategory from "./SearchCategory";
@@ -48,6 +49,16 @@ function Search() {
 
   return (
     <div>
+
+      <nav className="w-full flex justify-end mt-8">
+        <Link
+          to="/add"
+          className=" w-11/12 m-auto lg:w-1/6 text-center text-lg py-4 px-6 rounded-full border-2 lg:mr-16 text-gray-100 border-green-600 bg-green-600 hover:bg-gray-50 hover:border-green-600  hover:text-green-600 hover:shadow-2xl  "
+        >
+          Add DVD
+        </Link>
+      </nav>
+
       <div>
         <SearchCategory
           searchCategory={getSearchCategory}
