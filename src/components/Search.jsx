@@ -49,6 +49,7 @@ function Search() {
 
   return (
     <div>
+
       <nav className="w-full flex justify-end mt-8">
         <Link
           to="/add"
@@ -58,65 +59,69 @@ function Search() {
         </Link>
       </nav>
 
-      <SearchCategory
-        searchCategory={getSearchCategory}
+      <div>
+        <SearchCategory
+          searchCategory={getSearchCategory}
+          />
+      </div>
+      <div>
+        <SearchBar
+          searchValue={usersSearch}
+          searchValueFunction={filterDvdData}
         />
-      <SearchBar
-        searchValue={usersSearch}
-        searchValueFunction={filterDvdData}
-      />
-      <section className="flex justify-center my-4">
-        {userHasSearched ? (
-          <>
-            <div
-              className={
-                searchResults.length > 0
-                  ? "hidden"
-                  : "bg-red-100 border border-red-400 text-red-700  md:w-2/5 lg:max-w-md px-4 py-3 rounded-md"
-              }
-              role="alert"
-            >
-              <p className="text-center">
-                <strong>Sorry!</strong> There are no Dvds found with {" "}
-                <strong>{usersSearch}</strong>
-              </p>
-            </div>
-            <div
-              className={
-                searchResults.length > 0
-                  ? "grid grid-cols-3 gap-2 place-items-center"
-                  : "hidden"
-              }
-            >
-              {searchResults.map((dvd) => {
+        <section className="flex justify-center my-4">
+          {userHasSearched ? (
+            <>
+              <div
+                className={
+                  searchResults.length > 0
+                    ? "hidden"
+                    : "bg-red-100 border border-red-400 text-red-700  md:w-2/5 lg:max-w-md px-4 py-3 rounded-md"
+                }
+                role="alert"
+              >
+                <p className="text-center">
+                  <strong>Sorry!</strong> There are no Dvds in {userSearchCategory} found with {" "}
+                  <strong>{usersSearch}</strong>
+                </p>
+              </div>
+              <div
+                className={
+                  searchResults.length > 0
+                    ? "grid grid-cols-3 gap-2 place-items-center"
+                    : "hidden"
+                }
+              >
+                {searchResults.map((dvd) => {
+                  return (
+                    <Dvd
+                      key={dvd.dvdId}
+                      title={dvd.title}
+                      releaseDate={dvd.releaseDate}
+                      rating={dvd.rating}
+                      notes={dvd.notes}
+                    />
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <div className="grid grid-cols-3 gap-2 place-items-center">
+              {dvdData.map((dvd) => {
                 return (
                   <Dvd
-                    key={dvd.dvdId}
-                    title={dvd.title}
-                    releaseDate={dvd.releaseDate}
-                    rating={dvd.rating}
-                    notes={dvd.notes}
+                  key={dvd.dvdId}
+                  title={dvd.title}
+                  releaseDate={dvd.releaseDate}
+                  rating={dvd.rating}
+                  notes={dvd.notes}
                   />
                 );
               })}
             </div>
-          </>
-        ) : (
-          <div className="grid grid-cols-3 gap-2 place-items-center">
-            {dvdData.map((dvd) => {
-              return (
-                <Dvd
-                key={dvd.dvdId}
-                title={dvd.title}
-                releaseDate={dvd.releaseDate}
-                rating={dvd.rating}
-                notes={dvd.notes}
-                />
-              );
-            })}
-          </div>
-        )}
-      </section>
+          )}
+        </section>
+      </div>  
     </div>
   );
 }
