@@ -1,6 +1,7 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import useFetch from "../hooks/useFetch";
+import DeleteDvd from "./DeleteDvd";
 
 function DvdDetails() {
     let { dvdId } = useParams();
@@ -168,7 +169,24 @@ function DvdDetails() {
                         }
                         {/* End of DVD fields */}
 
-                    </div>
+                        {/* Edit and Delete Buttons */}
+                        <div className="flex justify-around my-6 w-2/5 mx-auto pt-2 space-x-4">
+                            <button
+                                className="bg-blue-600 rounded-full py-4 px-8 text-white hover:bg-gray-50 hover:border-blue-400  hover:text-blue-400 hover:shadow-2xl border-2"
+                                onClick={updateDvd}
+                            >
+                                {!editing ? "Edit" : "Save"}
+                            </button>
+
+                            {/* Delete Button */}
+                            <button
+                                className="bg-red-600 rounded-full py-4 px-8 text-white hover:bg-gray-50 hover:border-red-400  hover:text-red-400 hover:shadow-2xl border-2"
+                                onClick={DeleteDvd.deleteDvd}
+                            >
+                                Delete
+                            </button>
+
+                        </div>
                   </div>
                 )
             }
