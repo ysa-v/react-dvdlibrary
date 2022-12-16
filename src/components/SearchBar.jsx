@@ -1,4 +1,4 @@
-function SearchBar({ searchValue, searchValueFunction }) {
+function SearchBar({ searchValue, searchValueFunction}) {
   return (
     <div className="w-full mt-6 md:w-1/2 lg:max-w-md m-auto">
       <form
@@ -14,7 +14,7 @@ function SearchBar({ searchValue, searchValueFunction }) {
           id="searchBar"
           type="text"
           name="searchBar"
-          placeholder="Search Contacts"
+          placeholder="Search Dvds"
           className="py-2 flex-auto  focus:outline-none"
           value={searchValue}
           onChange={(e) => searchValueFunction(e.target.value)}

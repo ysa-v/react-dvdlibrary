@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import Dvd from "./Dvd";
+import SearchCategory from "./SearchCategory";
 import useFetch from "../hooks/useFetch";
 
 function Search() {
@@ -8,28 +9,32 @@ function Search() {
   const [userHasSearched, setUserHasSearched] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [userSearchCategory, setUserSearchCategory] = useState([]);
-  let url = `http://dvd-library.us-east-1.elasticbeanstalk.com/`;
+  let url = `http://dvd-library.us-east-1.elasticbeanstalk.com/dvds`;
   const [dvdData, error] = useFetch(url);
 
-  function filterDvdData(searchTerm, searchCategory) {
+  function getSearchCategory(searchCategory) {
+    setUserSearchCategory(searchCategory);
+  }
+
+  function filterDvdData(searchTerm) {
     setUserHasSearched(true);
     setUsersSearch(searchTerm);
-    setUserSearchCategory(searchCategory);
+    
 
     let filteredResults;
 
-    if (searchTerm == "" || searchCategory == "") {
+    if (searchTerm == "" || userSearchCategory == "") {
       filteredResults = [];
       setUserHasSearched(false);
     } else {
       filteredResults = dvdData.filter((dvd) => {
-        if (searchCategory == "title"){
+        if (userSearchCategory == "title"){
           return dvd.title.includes(searchTerm);
         }
-        if (searchCategory == "director"){
+        if (userSearchCategory == "director"){
           return dvd.director.includes(searchTerm);
         }
-        if (searchCategory == "release year"){
+        if (userSearchCategory == "release year"){
           return dvd.releaseDate.includes(searchTerm);
         }
         else {
@@ -43,15 +48,13 @@ function Search() {
 
   return (
     <div>
+      <SearchCategory
+        searchCategory={getSearchCategory}
+        />
       <SearchBar
         searchValue={usersSearch}
         searchValueFunction={filterDvdData}
       />
-
-      <SearchCategory
-        searchCategory={userSearchCategory}
-        />
-
       <section className="flex justify-center my-4">
         {userHasSearched ? (
           <>

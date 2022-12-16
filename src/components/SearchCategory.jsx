@@ -1,36 +1,35 @@
 import { useState } from "react";
 
-const SearchCategory = () => {
+function SearchCategory (getSearchCategory) {
     const [open, setOpen] = useState(false);
-    const [searchCategory, setSearchCategory] = useState("");
     const handleOpen = () => {
         setOpen(!open);
     };
 
     const handleTitleOption = () => {
-        setSearchCategory("title");
+        getSearchCategory("title");
         setOpen(false);
     };
 
     const handleDirectorOption = () => {
-        setSearchCategory("director");
+        getSearchCategory("director");
         setOpen(false);
     };
 
     const handleRatingOption = () => {
-        setSearchCategory("rating");
+        getSearchCategory("rating");
         setOpen(false);
     };
 
     const handleReleaseYear = () => {
-        setSearchCategory("release year");
+        getSearchCategory("release year");
         setOpen(false);
 
     };
 
     return (
         <div className="dropdown">
-            <button onClick={handleOpen}>Dropdown</button>
+            <button onClick={handleOpen}>Dvd Category</button>
             {open ? (
                 <ul className="category">
                     <li className="category-item">
